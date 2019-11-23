@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package visao;
-import modelo.Cadastro;
+
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import modelo.CadastroUsuario;
+import modelo.Usuario;
+
 
 /**
  *
@@ -12,11 +18,14 @@ import modelo.Cadastro;
  */
 public class TeladeLogin extends javax.swing.JFrame {
 
+    
+
     /**
      * Creates new form TeladeLogin
      */
     public TeladeLogin() {
         initComponents();
+        
     }
 
     /**
@@ -60,12 +69,22 @@ public class TeladeLogin extends javax.swing.JFrame {
         });
 
         btCadastrese.setText("Cadastre-se");
+        btCadastrese.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastreseActionPerformed(evt);
+            }
+        });
 
         tfSenha.setText("jPasswordField1");
+        tfSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSenhaActionPerformed(evt);
+            }
+        });
 
-        jLusuario.setText("Usuario");
+        jLusuario.setText("Cpf:");
 
-        jLsenha.setText("Senha");
+        jLsenha.setText("Senha:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +138,7 @@ public class TeladeLogin extends javax.swing.JFrame {
 
     private void tfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfCpfActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
@@ -127,8 +147,38 @@ public class TeladeLogin extends javax.swing.JFrame {
         String cpf = tfCpf.getText();
         String senha = tfSenha.getText();
         
+        Usuario uLogin = new Usuario();
+        uLogin.setCpf(cpf);
+        uLogin.setSenha(senha);
+        
+        CadastroUsuario.logarUsuario(uLogin);
+        Usuario u = CadastroUsuario.logarUsuario(uLogin);
+        if (u!= null){
+            MenuPrincipal m = new MenuPrincipal(u);
+            m.setVisible(true);
+            this.dispose();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Cpf ou senha invalidos");
+        }
+        
+        String funçao2 = CadastroUsuario.verFunçao(uLogin);
+        
         
     }//GEN-LAST:event_btLoginActionPerformed
+
+    private void btCadastreseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastreseActionPerformed
+        // TODO add your handling code here:
+        CadastrodeUsuario s = new CadastrodeUsuario();
+         s.setVisible(true);
+         this.dispose();
+        
+        
+    }//GEN-LAST:event_btCadastreseActionPerformed
+
+    private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,4 +225,27 @@ public class TeladeLogin extends javax.swing.JFrame {
     private javax.swing.JTextField tfCpf;
     private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
+
+    public void exibemeuTeste(String mensagem) {
+        JOptionPane.showMessageDialog(null, "Ta testado!");
+    }
+
+    public JTextField getTfCpf() {
+        return tfCpf;
+    }
+
+    public void setTfCpf(JTextField tfCpf) {
+        this.tfCpf = tfCpf;
+    }
+
+    public JPasswordField getTfSenha() {
+        return tfSenha;
+    }
+
+    public void setTfSenha(JPasswordField tfSenha) {
+        this.tfSenha = tfSenha;
+    }
+
+    
+    
 }

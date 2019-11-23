@@ -4,19 +4,28 @@
  * and open the template in the editor.
  */
 package visao;
+import modelo.Usuario;
 
 /**
  *
  * @author Usuario
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    public Usuario usuario;
     /**
      * Creates new form MenuPrincipal
      */
+    public MenuPrincipal(Usuario u) {
+        this.usuario = u;
+        initComponents();
+    }
+    
     public MenuPrincipal() {
         initComponents();
     }
+    
+    
+    //TeladeLogin.get(uLogin).getFunçao();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jBeditarLocais = new javax.swing.JButton();
         jBconfirmarLocais = new javax.swing.JButton();
         jBcadastrarLocais = new javax.swing.JButton();
+        jbSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +73,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jBcadastrarLocais.setText("Cadastrar Locais");
 
+        jbSair.setBackground(new java.awt.Color(204, 0, 0));
+        jbSair.setText("X");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,22 +90,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jBConfirmarPres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLProximasreunioes)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBeditarLocais)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBconfirmarLocais)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBcadastrarLocais)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBeditarLocais)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBconfirmarLocais)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBcadastrarLocais)))
+                        .addContainerGap(82, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLProximasreunioes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSair)
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLProximasreunioes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLProximasreunioes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jbSair)
+                        .addGap(16, 16, 16)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBagendarReuniao)
@@ -132,23 +157,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MenuPrincipal().setVisible(true);
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -163,5 +184,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLProximasreunioes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jbSair;
     // End of variables declaration//GEN-END:variables
 }

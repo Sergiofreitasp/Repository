@@ -47,17 +47,15 @@
                               <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
                               <Component id="tfEmail" alignment="0" max="32767" attributes="0"/>
                               <Component id="tfCpf" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tfSenha" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tfSenha" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                               <Component id="tfNome" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
                               <Component id="btCadastrar" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="321" max="32767" attributes="0"/>
+              <EmptySpace pref="320" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,7 +146,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar e-mail:"/>
+        <Property name="text" type="java.lang.String" value="Confirmar senha:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btCadastrar">
@@ -177,6 +175,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbFun&#xe7;aoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

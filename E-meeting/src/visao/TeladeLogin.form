@@ -114,20 +114,26 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastre-se"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastreseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="tfSenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSenhaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLusuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="Cpf:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLsenha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Senha"/>
+        <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -1,20 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package modelo;
 
-/**
- *
- * @author Usuario
- */
+//import java.util.ArrayList;
+
+
 public class Usuario {
     private String nome;
     private String email;
     private String funçao;
     private String cpf;
     private String senha;
+    
+    public Usuario() {
+    }
+    
+    /*public Usuario( String cpf, String senha) {
+        this.cpf = cpf;
+        this.senha = senha;
+    }*/
+
 
     public Usuario(String nome, String email, String funçao, String cpf, String senha) {
         this.nome = nome;
@@ -24,9 +29,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario() {
-    }
-
+   
     public String getNome() {
         return nome;
     }
@@ -72,7 +75,7 @@ public class Usuario {
         return "Usuario{" + "nome=" + nome + ", email=" + email + ", fun\u00e7ao=" + funçao + ", cpf=" + cpf + ", senha=" + senha + '}';
     }
     
-    
+    //ArrayList<Usuario> cadastros = new ArrayList<>();
 
     
 }
